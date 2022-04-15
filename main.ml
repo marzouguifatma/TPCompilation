@@ -1,5 +1,7 @@
 (*fichier main.ml *)
 let _ = (*main en OCaml*)
+let channel_in = if (Array.length Sys.argv)>1 then (open_in Sys.argv.(1)) else (stdin) in
+let channel_out = if (Array.length Sys.argv)>1 then (open_out (String.concat Sys.argv.(1) ["";".jsm"])) else (stdout) in
 try
   let lexbuf = Lexing.from_channel stdin in (*lexeur lancé sur stdin*)
   while true do (*on ne s'arrête pas*)
